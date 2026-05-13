@@ -2,6 +2,7 @@
 package Models;
 import Consola.Consola;
 import Validar.Validar;
+import java.util.Objects;
 /**
  *
  * @author emami
@@ -19,14 +20,43 @@ public abstract class Persona {
 
     public Persona() {
     }
-    
+    //----
     public abstract void mostrarDatos();
+    public abstract String getTipoClase();
+    
+    
+    
     
     public void CargarDatos(){
         ingresarNombre();
         ingresarApellido();
         ingresarDni();
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Persona other = (Persona) obj;
+        return Objects.equals(this.dni, other.dni);
+    }
+    
+    
+    
+    
     private void ingresarNombre(){
       String n;
         do {
@@ -49,7 +79,7 @@ public abstract class Persona {
         } while (!validarString(a));
         setApe(a);
     }
-    private void ingresarDni(){
+    publico void ingresarDni(){
         String d;
         do {
             Consola.emitirMensaje("DNI: ");

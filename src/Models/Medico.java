@@ -26,7 +26,7 @@ public abstract class Medico extends Persona {
     }
     
     
-    public abstract void descubrirEspecialidad(); 
+    public abstract void especialidad(); 
 
     public int getId() {
         return id;

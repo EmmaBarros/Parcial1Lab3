@@ -11,7 +11,7 @@ import Consola.Consola;
 public class Paciente extends Persona{
     static int contId = 0;
     private int id;
-    private int nroCel;
+    private DatoContacto contacto;
     private Lista<Turno> agenda;
     private String obraSoc;
     private int edad;
@@ -62,6 +62,11 @@ public class Paciente extends Persona{
         }else{
             Consola.emitirMensajeLN("Asignacion Denegada ,el Pacioente ya tiene error");
         }
+    }
+
+    @Override
+    public String getTipoClase() {
+        return "Paciente";
     }
     
 }
