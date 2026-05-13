@@ -1,6 +1,7 @@
 
 package Models;
 import ED.Lista;
+import Validar.Validar;
 /**
  *
  * @author emami
@@ -13,21 +14,26 @@ public abstract class Medico extends Persona {
     private String esp;
 
     
-    
+  //-constr  
     public Medico() {
         super();
         contId ++;
         this.id = contId;
+       
     }
-    
-    
+  //abstrc
+    public abstract void verEsp(); 
+
+   //carga  
     public void cargarDatos(){
         super.CargarDatos();
     }
     
     
-    public abstract void especialidad(); 
+  
 
+    
+    //gtrs y strs
     public int getId() {
         return id;
     }
@@ -66,6 +72,19 @@ public abstract class Medico extends Persona {
 
     private void setEsp(String esp) {
         this.esp = esp;
+    }
+    
+//Override
+    
+    @Override
+    public void mostrarDatos(){
+        super.toString();
+        toString();
+    }
+    
+    @Override
+    public String toString() {
+        return "Medico " + "\n-id = " + id + "\n-matricula = " + matricula + "\n-agenda = " + agenda + "\nesp = " + esp;
     }
     
     

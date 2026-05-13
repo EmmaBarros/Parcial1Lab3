@@ -12,7 +12,10 @@ public class Clinico extends Medico {
     }
 
     @Override
-    public void descubrirEspecialidad() {
+    public void verEsp() {
+        
     }
+
+    
     
 }

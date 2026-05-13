@@ -3,6 +3,7 @@ package Models;
 import Consola.Consola;
 import Validar.Validar;
 import java.util.Objects;
+
 /**
  *
  * @author emami
@@ -11,61 +12,36 @@ public abstract class Persona {
  private String nom;
  private String ape;
  private String  dni;
+ private DatoContacto dato;
 
-    public Persona(String nom, String ape, String dni) {
-        this.nom = nom;
-        this.ape = ape;
-        this.dni = dni;
-    }
+
 
     public Persona() {
+        this.dato = new DatoContacto();
     }
-    //----
+    
+//mets abstractos
+  
     public abstract void mostrarDatos();
-    public abstract String getTipoClase();
-    
-    
-    
-    
+
+//carga 
+ 
     public void CargarDatos(){
         ingresarNombre();
         ingresarApellido();
         ingresarDni();
+        this.dato.cargarDatos();
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Persona other = (Persona) obj;
-        return Objects.equals(this.dni, other.dni);
-    }
-    
-    
-    
-    
     private void ingresarNombre(){
       String n;
         do {
             Consola.emitirMensaje("Nombre: ");
             n = Consola.leerDato();
-            if (!validarString(n)) {
+            if (!Validar.validarString(n)) {
                 Consola.emitirMensajeLN("Carga invalida , ingrese un nombre...");
             }
-        } while (!validarString(n));
+        } while (!Validar.validarString(n));
         setNom(n);  
     }
     private void ingresarApellido(){
@@ -73,13 +49,13 @@ public abstract class Persona {
         do {
             Consola.emitirMensaje("Apellido: ");
             a = Consola.leerDato();
-            if (!validarString(a)) {
+            if (!Validar.validarString(a)) {
                 Consola.emitirMensajeLN("Carga invalida , ingrese un apellido");
             }
-        } while (!validarString(a));
+        } while (!Validar.validarString(a));
         setApe(a);
     }
-    publico void ingresarDni(){
+    public void ingresarDni(){
         String d;
         do {
             Consola.emitirMensaje("DNI: ");
@@ -91,14 +67,8 @@ public abstract class Persona {
         setDni(d);
     }
         
-    private boolean validarString(String n){
-         return  n != null && !n.trim().isEmpty() ;
-    }   
-    
-  private boolean validarInt(int x){
-      return x > 0;
-  }      
-  
+
+  //gtts y stts
     public String getNom() {
         return nom;
     }
@@ -122,10 +92,36 @@ public abstract class Persona {
     private void setDni(String dni) {
         this.dni = dni;
     }
- 
- @Override
-    public String toString() {
-        return ape + ", " + nom + " | DNI: " + dni;
+    
+ //Override
+    @Override
+    public int hashCode() {
+        return Objects.hash(dni);
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Persona other = (Persona) obj;
+        return Objects.equals(this.dni, other.dni);
         
+    }
+    
+    @Override
+public String toString() {
+    return String.format("%-15s | DNI: %-10s | %s", 
+                         ape.toUpperCase() + ", " + nom, 
+                         dni, 
+                         dato.toString());
+}
+    
+ 
 }

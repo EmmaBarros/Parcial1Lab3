@@ -64,9 +64,4 @@ public class Paciente extends Persona{
         }
     }
 
-    @Override
-    public String getTipoClase() {
-        return "Paciente";
-    }
-    
 }

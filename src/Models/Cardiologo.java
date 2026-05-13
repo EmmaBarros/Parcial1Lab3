@@ -12,7 +12,9 @@ public class Cardiologo extends Medico{
     }
 
     @Override
-    public void descubrirEspecialidad() {
+    public void verEsp() {
     }
+
+   
     
 }
