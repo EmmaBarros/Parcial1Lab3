@@ -1,7 +1,7 @@
 
 package Models;
 import ED.Lista;
-import Validar.Validar;
+import Consola.Consola;
 /**
  *
  * @author emami
@@ -29,6 +29,9 @@ public abstract class Medico extends Persona {
         super.CargarDatos();
     }
     
+    public boolean esElMismo(Medico otro) {
+    return matricula == otro.getMatricula() || getDni() == otro.getDni();
+}
     
   
 
@@ -78,8 +81,8 @@ public abstract class Medico extends Persona {
     
     @Override
     public void mostrarDatos(){
-        super.toString();
-        toString();
+        Consola.emitirMensajeLN(super.toString());
+        Consola.emitirMensajeLN(toString());
     }
     
     @Override

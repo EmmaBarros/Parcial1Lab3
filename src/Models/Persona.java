@@ -9,10 +9,10 @@ import java.util.Objects;
  * @author emami
  */
 public abstract class Persona {
- private String nom;
- private String ape;
- private String  dni;
- private DatoContacto dato;
+ protected String nom;
+ protected String ape;
+ protected String  dni;
+ protected DatoContacto dato;
 
 
 
