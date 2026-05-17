@@ -7,14 +7,13 @@ import Consola.Consola;
  */
 public class Clinico extends Medico {
 
-    @Override
-    public void mostrarDatos() {
-        super.toString();
+    public Clinico() {
+        super("Clinico");
     }
 
     @Override
     public void verEsp() {
-      Consola.emitirMensajeLN("Clinico");
+      Consola.emitirMensajeLN(super.getEsp());
     }
 
     

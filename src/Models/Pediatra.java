@@ -1,18 +1,20 @@
 
 package Models;
-
+import Consola.Consola; 
 /**
  *
  * @author emami
  */
 public class Pediatra extends Medico {
 
-    @Override
-    public void mostrarDatos() {
+    public Pediatra() {
+        super("pediatra");
     }
+
 
     @Override
     public void verEsp() {
+        Consola.emitirMensajeLN(super.getEsp());
     }
 
     

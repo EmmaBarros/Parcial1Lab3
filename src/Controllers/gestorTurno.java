@@ -25,7 +25,7 @@ public class gestorTurno implements IGestionable<Turno>{
     }
 
     @Override
-    public void eliminar(Turno elem) {
+    public void eliminar() {
     }
 
     @Override

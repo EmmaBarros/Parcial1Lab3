@@ -1,20 +1,108 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Models;
+import Consola.Consola;
 
 /**
  *
  * @author emami
  */
 public class Turno {
+    private static int contId = 0;
     private int codT;
     private Paciente paciente;
     private Medico medico;
-    private boolean Estado = false;
+    private boolean estado;
     private Fecha fecha;
+
+    public Turno() {
+        contId ++;
+         this.codT = contId;
+        this.fecha = new Fecha();
+        this.medico = null;
+        this.paciente = null;
+
+    }
+    //carga
+    public void cargarDatos(Paciente p,Medico m){
+        this.medico = m;
+        this.paciente = p;
+        
+        Consola.emitirMensajeLN("ingrese la fecha y Hora del Turno");
+        this.fecha.cargarFecha();
+        
+        this.estado = true;
+        
+    }
+    
+    public boolean coincideTurno(Fecha otraFecha){
+        if(!this.estado){//si el estado esta ocupado no lo cuenta
+            return false;
+        }
+        return this.fecha.esIgualA(otraFecha);
+    }
+    
+    public void cambiarEstado(){
+       estado = !estado;
+               
+    }
+
+    
+    
+    
+    //gtt y stt
+    public static int getContId() {
+        return contId;
+    }
+
+    private static void setContId(int contId) {
+        Turno.contId = contId;
+    }
+
+    public int getCodT() {
+        return codT;
+    }
+
+    private void setCodT(int codT) {
+        this.codT = codT;
+    }
+
+    public Paciente getPaciente() {
+        return paciente;
+    }
+
+    private void setPaciente(Paciente paciente) {
+        this.paciente = paciente;
+    }
+
+    public Medico getMedico() {
+        return medico;
+    }
+
+    private void setMedico(Medico medico) {
+        this.medico = medico;
+    }
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    private void setEstado(boolean estado) {
+        this.estado = estado;
+    }
+
+    public Fecha getFecha() {
+        return fecha;
+    }
+
+    private void setFecha(Fecha fecha) {
+        this.fecha = fecha;
+    }
+    
+    
+    
+    
+    
+    
     
     
 }

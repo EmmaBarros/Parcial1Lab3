@@ -59,6 +59,14 @@ public class Fecha {
             return false;
         }
     }
+    
+    public boolean esIgualA(Fecha otra){
+        return this.dia == otra.getDia() &&
+           this.mes == otra.getMes() &&
+           this.anio == otra.getAnio() &&
+           this.hora == otra.getHora() &&
+           this.minuto == otra.getMinuto();
+    }
 
     // Getters para los nuevos atributos
     public int getHora() { return hora; }

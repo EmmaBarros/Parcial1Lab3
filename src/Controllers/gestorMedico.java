@@ -13,9 +13,28 @@ public class gestorMedico implements IGestionable<Medico>{
     public gestorMedico() {
         this.lista = new Lista<>();
     }
-
-    
-    
+ public void cargar(int tipo){
+        Medico m = null;
+        switch(tipo){
+            case 1:
+                m = new Clinico();
+                break;
+                
+            case 2:
+                m = new Pediatra();
+                break;
+                
+            case 3:
+                m = new Cardiologo();
+                break;
+            default:
+                Consola.emitirMensajeLN("especialidad invalida");
+                return;
+        }
+        
+        m.cargarDatos();
+        registrar(m);
+    }
     
         
     
@@ -52,7 +71,7 @@ public class gestorMedico implements IGestionable<Medico>{
     @Override
     public void eliminar() {
       Consola.emitirMensajeLN("ingrese la matricula a eliminar : ");
-      int mat = Consola.leerInt();
+      String mat = Consola.leerString();
       
       Medico encontrado = buscarPorMatricula(mat);
       if(encontrado != null){
@@ -69,13 +88,13 @@ public class gestorMedico implements IGestionable<Medico>{
         }else{
             lista.visualizar();        
         }
-    }
+    } 
     
     //busqueda
-    public Medico buscarPorMatricula(int mat){
+    public Medico buscarPorMatricula(String mat){
         Nodo<Medico> p = lista.inicio();
         while(p != null){
-            if(p.getDato().getMatricula()==mat){
+            if(p.getDato().getMatricula().equals(mat)){
                 return p.getDato();
             }
             p = p.getPs();
