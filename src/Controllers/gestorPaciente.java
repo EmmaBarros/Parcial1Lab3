@@ -15,26 +15,13 @@ public class gestorPaciente implements IGestionable<Paciente> {
         this.lista = new Lista<>();
     }
 
+    
+    
+    //carga y registro
  public void cargar(){
      Paciente p = new Paciente();
      p.CargarDatos();
      registrar(p);
-     
- }
- //busqueda para eliminacion por Dni
- public Paciente buscarPorDni(String dniB){
-     Nodo<Paciente> n = lista.inicio();
-    
-    while (n != null) {
-        Paciente p = n.getDato();
-        
-        // Al ser int, comparamos directo con == usando el getter
-        if (p.getDni() == dniB) {
-            return p; // Encontrado en la lista
-        }
-        n = n.getPs();
-    }
-    return null; // Si termina el ciclo y no lo encuentra
      
  }
  
@@ -58,7 +45,7 @@ public class gestorPaciente implements IGestionable<Paciente> {
             while(n != null){
                 p = n.getDato();
 
-                if(p.equals(elem)){
+                if(p.esElMismo(elem)){
                     return p;
                 }
 
@@ -91,6 +78,31 @@ public class gestorPaciente implements IGestionable<Paciente> {
     }
  
     
+    //busqueda para eliminacion por Dni
+ public Paciente buscarPorDni(String dniB){
+     Nodo<Paciente> n = lista.inicio();
     
+    while (n != null) {
+        Paciente p = n.getDato();
+        
+        if (p.getDni() == dniB) {
+            return p; 
+        }
+        n = n.getPs();
+    }
+    return null; 
+     
+ }
+
+    public Lista<Paciente> getLista() {
+        return lista;
+    }
+
+    private void setLista(Lista<Paciente> lista) {
+        this.lista = lista;
+    }
+ 
+ 
+ 
  
 }

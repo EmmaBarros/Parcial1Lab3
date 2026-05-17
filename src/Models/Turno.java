@@ -34,6 +34,14 @@ public class Turno {
         
     }
     
+    public void mostrarInfo(){
+        Consola.emitirMensajeLN("Codigo :"+codT);
+        medico.mostrarDatos();
+        paciente.mostrarDatos();
+        Consola.emitirMensajeLN("Fecha :"+fecha.StringFecha()+"\tHora : "+fecha.stringHora());
+        Consola.emitirMensajeLN("Estado :"+stringEstado());
+    }
+    
     public boolean coincideTurno(Fecha otraFecha){
         if(!this.estado){//si el estado esta ocupado no lo cuenta
             return false;
@@ -46,6 +54,13 @@ public class Turno {
                
     }
 
+    private String stringEstado(){
+        if(estado){
+            return "Activo";
+        }else{
+            return "Cancelado";
+        }
+    }
     
     
     
@@ -82,7 +97,7 @@ public class Turno {
         this.medico = medico;
     }
 
-    public boolean isEstado() {
+    public boolean getEstado() {
         return estado;
     }
 

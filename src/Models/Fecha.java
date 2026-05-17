@@ -67,6 +67,18 @@ public class Fecha {
            this.hora == otra.getHora() &&
            this.minuto == otra.getMinuto();
     }
+        public String formatoFecha() {
+        return String.format("%02d/%02d/%04d %02d:%02d\n", dia, mes, anio, hora, minuto);
+    }
+    
+    public String StringFecha(){
+        return String.format("%02d/%02d/%04d", dia, mes, anio);
+    }
+    
+    public String stringHora(){
+        return String.format("%02d:%02d", hora, minuto); 
+    }
+
 
     // Getters para los nuevos atributos
     public int getHora() { return hora; }
