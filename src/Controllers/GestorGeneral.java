@@ -26,6 +26,8 @@ public class GestorGeneral {
         this.menuM = new Menu(5);
         this.menuT = new Menu(4);
         // carga de titulos
+        
+        
         this.menu.cargarDato("SISTEMA DE GESTION CLINICA", 
             new String[]{"Modulo Pacientes", "Modulo Medicos", "Modulo Turnos", "Salir del Sistema"});
 

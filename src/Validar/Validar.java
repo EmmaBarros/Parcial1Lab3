@@ -15,7 +15,7 @@ public class Validar {
     }
     
     public static boolean ValidarIntRang(int valor,int min,int max){
-        return valor > 0 && valor > min && valor < max;
+        return valor > 0 && valor >= min && valor <= max;
     }
 
     /**
