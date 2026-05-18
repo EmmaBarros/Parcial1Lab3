@@ -34,36 +34,21 @@ public abstract class Persona {
     }
 
     private void ingresarNombre(){
-      String n;
-        do {
-            Consola.emitirMensaje("Nombre: ");
-            n = Consola.leerDato();
-            if (!Validar.validarString(n)) {
-                Consola.emitirMensajeLN("Carga invalida , ingrese un nombre...");
-            }
-        } while (!Validar.validarString(n));
-        setNom(n);  
+     String nom = Validar.leerString("Ingrese el Nombre: ","Carga Invalida , intente nuevamente");
+     setNom(nom);
     }
     private void ingresarApellido(){
-        String a;
-        do {
-            Consola.emitirMensaje("Apellido: ");
-            a = Consola.leerDato();
-            if (!Validar.validarString(a)) {
-                Consola.emitirMensajeLN("Carga invalida , ingrese un apellido");
-            }
-        } while (!Validar.validarString(a));
-        setApe(a);
+        String ape = Validar.leerString("Ingrese el Apellido:  ","Carga Invalida , ingrese nuevamente");
     }
     public void ingresarDni(){
         String d;
         do {
             Consola.emitirMensaje("DNI: ");
             d = Consola.leerString();
-            if (!Validar.validarDni(d)) {
+            if (!Validar.validarStringNum(d)|| d.length()< 7 || d.length() > 8) {
                 Consola.emitirMensajeLN("Carga invlida , ingerese un Dni");
             }
-        } while (!Validar.validarDni(d));
+        } while (!Validar.validarStringNum(d));
         setDni(d);
     }
     public void asignarDni(String dni){

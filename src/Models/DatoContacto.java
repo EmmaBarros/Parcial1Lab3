@@ -33,45 +33,18 @@ public class DatoContacto {
     
     
    private void ingresoTelf(){
-        String nro;
-        do{
-            Consola.emitirMensajeLN("ingrese el numero de celular ");
-            nro = Consola.leerString();
-            if(!Validar.validarString(nro)){
-                Consola.emitirMensajeLN("numero incorrecto , por favot ingrese nuevamente");
-            }else{
-                Consola.emitirMensajeLN("numero asignado correctamente");
-            }
-        }while(!Validar.validarString(nro));
+        String nro = Validar.leerString("Ingrese el Numero de Telefono: ", "Carga Invalida m ingrese nuevamente..."); 
         setNroTel(nro);
    } 
    
    private void ingresoGmail(){
-        String g;       
-        do{
-            Consola.emitirMensajeLN("ingrese el Gmail de la persona");
-            g = Consola.leerString();
-            if(!Validar.validarString(g)){
-                Consola.emitirMensajeLN("Gmail incorrecto , por favot ingrese nuevamente");
-            }else{
-                Consola.emitirMensajeLN("Gmail asignado correctamente");
-            }
-        }while(!Validar.validarString(g));
+        String g = Validar.leerString("Ingrese el Gmail: ", "Carga Invalida , intente Nuevamente...");
         setGmail(g);
 
     }
    
    private void ingresoDirec(){
-         String d;       
-        do{
-            Consola.emitirMensajeLN("ingrese el la direccion EJ : Calle - Nro");
-            d = Consola.leerString();
-            if(!Validar.validarString(d)){
-                Consola.emitirMensajeLN("Direccion incorrecta , por favot ingrese nuevamente");
-            }else{
-                Consola.emitirMensajeLN("Direccion asignada correctamente");
-            }
-        }while(!Validar.validarString(d));
+         String d = Validar.leerString("ingrese La Direciion (calle-Nro): ", "Carga Invalida , intente nuevamente....");
         setDirec(d);
    }
    

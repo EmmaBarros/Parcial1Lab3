@@ -30,15 +30,7 @@ public class Paciente extends Persona{
     }
    
    private void leerObraSocial(){
-       String obraSoc;
-       do{
-           Consola.emitirMensajeLN("ingrese la obra social :");
-           obraSoc = Consola.leerString();
-           
-           if(!Validar.validarString(obraSoc)){
-               Consola.emitirMensajeLN("Error ingreso vacio  , intente nuevamente");
-           }
-       }while(!Validar.validarString(obraSoc));
+       String obraSoc = Validar.leerString("ingrese la Obra Social: ", "Carga Invalida , intente nuevamente...");
        setObraSoc(obraSoc);
    }
    
