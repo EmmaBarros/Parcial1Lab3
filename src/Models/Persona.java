@@ -27,20 +27,20 @@ public abstract class Persona {
 //carga 
  
     public void CargarDatos(){
-        ingresarNombre();
-        ingresarApellido();
-        ingresarDni();
+        leerNombre();
+        leerApellido();
+        leerDni();
         this.dato.cargarDatos();
     }
 
-    private void ingresarNombre(){
+    private void leerNombre(){
      String nom = Validar.leerString("Ingrese el Nombre: ","Carga Invalida , intente nuevamente");
      setNom(nom);
     }
-    private void ingresarApellido(){
+    private void leerApellido(){
         String ape = Validar.leerString("Ingrese el Apellido:  ","Carga Invalida , ingrese nuevamente");
     }
-    public void ingresarDni(){
+    public void leerDni(){
         String d;
         do {
             Consola.emitirMensaje("DNI: ");

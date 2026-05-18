@@ -30,27 +30,13 @@ public abstract class Medico extends Persona {
    //carga  
     public void cargarDatos(){
         super.CargarDatos();
-        String matric = leerString("ingrese la matricula","Error intente nuevamente");
+        leerMatr();
+    }
+   private void leerMatr(){
+          String matric = Validar.leerString("ingrese la matricula","Error intente nuevamente");
         setMatricula(matric);
-    }
-   
+   }
     
-        
-    private String leerString(String msj, String error) {
-        String texto;
-        
-        do{
-            Consola.emitirMensaje(msj);
-            texto = Consola.leerString();
-            
-            if(!Validar.validarString(texto)){
-                Consola.emitirMensajeLN(error);
-            }
-            
-        }while(!Validar.validarString(texto));
-        
-        return texto;
-    }
     
     public void verAgenda(){
         Nodo<Turno> p = agenda.inicio();

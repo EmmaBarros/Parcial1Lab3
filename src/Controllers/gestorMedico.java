@@ -92,6 +92,7 @@ public class gestorMedico implements IGestionable<Medico>{
       Medico encontrado = buscarPorMatricula(mat);
       if(encontrado != null){
           lista.eliminar(encontrado);
+          Consola.emitirMensajeLN("Medico Eliminado de la lista");
       }else{
           Consola.emitirMensajeLN("no se encontro ningun medico con la matricula"+mat);
       }
