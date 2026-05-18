@@ -137,6 +137,7 @@ public class GestorGeneral {
     private void altaTurno(){
         //se busca y se valida que el paciente exista
         Consola.emitirMensajeLN("Alta de Turno");
+        Consola.emitirMensajeLN("ingrese el DNI del paciente");
         String dniB = Consola.leerString();
         Paciente encontrado = gPaciente.buscarPorDni(dniB);
         
