@@ -52,7 +52,7 @@ public abstract class Medico extends Persona {
         return texto;
     }
     
-    private void verAgenda(){
+    public void verAgenda(){
         Nodo<Turno> p = agenda.inicio();
         while(p!=null){
             Turno t = p.getDato();

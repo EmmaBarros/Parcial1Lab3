@@ -35,6 +35,20 @@ public class gestorMedico implements IGestionable<Medico>{
         m.cargarDatos();
         registrar(m);
     }
+ 
+    public void consultarAgenda(){
+        Consola.emitirMensajeLN("---Consultar Agenda de Medico---");
+        Consola.emitirMensajeLN("ingrese la matricula del medico : ");
+        String mat = Consola.leerString();
+       //se bvusca y se muestra la agenda
+        Medico encontrado = buscarPorMatricula(mat);
+        
+        if(encontrado != null){
+            encontrado.verAgenda();
+        }else{
+            Consola.emitirMensajeLN("Error : no se encontro ningun medico con matricula"+mat);
+        }
+    }
     
         
     
