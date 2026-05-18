@@ -66,7 +66,9 @@ public abstract class Persona {
         } while (!Validar.validarDni(d));
         setDni(d);
     }
-        
+    public void asignarDni(String dni){
+        setDni(dni);
+    }
 
   //gtts y stts
     public String getNom() {
@@ -117,8 +119,8 @@ public abstract class Persona {
     
     @Override
 public String toString() {
-    return String.format("%-15s | DNI: %-10s | %s", 
-                         ape.toUpperCase() + ", " + nom, 
+    return String.format("%-15s | DNI: %-10s | \n%s", 
+                         ape + ", " + nom, 
                          dni, 
                          dato.toString());
 }

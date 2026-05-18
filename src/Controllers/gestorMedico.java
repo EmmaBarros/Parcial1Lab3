@@ -60,7 +60,7 @@ public class gestorMedico implements IGestionable<Medico>{
             lista.insertarPri(nuevo);
             Consola.emitirMensajeLN("medico registrado");
         }else{
-            if(encontrado.getMatricula() == nuevo.getMatricula()){
+            if(encontrado.getMatricula().equals(nuevo.getMatricula())){
                 Consola.emitirMensajeLN("la matricula ya existe");
             }else{
                 Consola.emitirMensajeLN("el dni ya pertenece a otro medico");
@@ -72,6 +72,8 @@ public class gestorMedico implements IGestionable<Medico>{
     public Medico buscar(Medico m) {
         Nodo<Medico> p = lista.inicio();
         while(p != null){
+            //a continuacion se crea referencia para verificar la busuqeda de medicos
+           
             if(p.getDato().esElMismo(m) ||
                     p.getDato().esElMismo(m)){
                 return p.getDato();

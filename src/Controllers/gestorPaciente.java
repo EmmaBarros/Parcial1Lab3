@@ -23,6 +23,8 @@ public class gestorPaciente implements IGestionable<Paciente> {
      p.CargarDatos();
      registrar(p);
      
+     
+     
  }
  
  
@@ -85,7 +87,7 @@ public class gestorPaciente implements IGestionable<Paciente> {
     while (n != null) {
         Paciente p = n.getDato();
         
-        if (p.getDni() == dniB) {
+        if (p.getDni().equals(dniB)) {
             return p; 
         }
         n = n.getPs();

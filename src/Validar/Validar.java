@@ -17,6 +17,10 @@ public class Validar {
     public static boolean ValidarIntRang(int valor,int min,int max){
         return valor > 0 && valor >= min && valor <= max;
     }
+    
+    public static boolean ValidarLongRang(long valor,long min,long max){
+        return valor > 0 && valor >= min && valor <= max;
+    }
 
     /**
      * Valida que un número decimal sea mayor a cero.

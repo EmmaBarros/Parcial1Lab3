@@ -114,7 +114,16 @@ public class Turno {
     }
     
     
-    
+    @Override
+    public String toString() {
+        return "=======================================\n" +
+               " TURNO Nro: " + this.codT + "\n" + 
+               " FECHA/HORA: " + this.fecha + "\n" +  
+               "---------------------------------------\n" +
+               " PACIENTE:\n" + this.paciente.getNom() + " " + this.paciente.getApe() + " (DNI: " + this.paciente.getDni() + ")\n" +
+               " MEDICO:\n" + this.medico.getNom() + " " + this.medico.getApe() + " (Mat.: " + this.medico.getMatricula() + ")\n" +
+               "=======================================";
+    }
     
     
     

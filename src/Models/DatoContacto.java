@@ -7,11 +7,11 @@ import Consola.Consola;
  * @author pc
  */
 public class DatoContacto {
-   private int nroTel;
+   private String nroTel;
    private String gmail; 
    private String direc;
 
-    public DatoContacto(int nroTel, String gmail, String direc) {
+    public DatoContacto(String nroTel, String gmail, String direc) {
         this.nroTel = nroTel;
         this.gmail = gmail;
         this.direc = direc;
@@ -20,7 +20,7 @@ public class DatoContacto {
     public DatoContacto() {
         this.direc = "";
         this.gmail = "";
-        this.nroTel = 0;    
+        this.nroTel = "";    
     }
     
    
@@ -33,16 +33,16 @@ public class DatoContacto {
     
     
    private void ingresoTelf(){
-        int nro;
+        String nro;
         do{
-            Consola.emitirMensajeLN("ingrese el numero de celular");
-            nro = Consola.leerInt();
-            if(!Validar.ValidarIntRang(nro, 10, 100000000)){
+            Consola.emitirMensajeLN("ingrese el numero de celular ");
+            nro = Consola.leerString();
+            if(!Validar.validarString(nro)){
                 Consola.emitirMensajeLN("numero incorrecto , por favot ingrese nuevamente");
             }else{
                 Consola.emitirMensajeLN("numero asignado correctamente");
             }
-        }while(!Validar.ValidarIntRang(nro, 10, 100000000));
+        }while(!Validar.validarString(nro));
         setNroTel(nro);
    } 
    
@@ -79,11 +79,11 @@ public class DatoContacto {
    
   //stt y gtt
 
-    public int getNroTel() {
+    public String getNroTel() {
         return nroTel;
     }
 
-    private void setNroTel(int nroTel) {
+    private void setNroTel(String nroTel) {
         this.nroTel = nroTel;
     }
 
@@ -105,7 +105,7 @@ public class DatoContacto {
 
     @Override
     public String toString() {
-        return "DatoContacto\n" + "-nroTel = " + nroTel + "\n-gmail = " + gmail + "\n-direc = " + direc;
+        return "Contacto\n" + "-Numero de Telefono = " + nroTel + "\n-gmail = " + gmail + "\n-Direccion = " + direc;
     }
    
    

@@ -57,8 +57,8 @@ public class Paciente extends Persona{
  
     
    
-    public boolean esElMismo(Paciente otro){
-        return this.dni == otro.dni;
+    public boolean esElMismo(Persona otro){
+        return otro != null && this.dni.equals(otro.getDni());
     }
     
     

@@ -54,6 +54,17 @@ public class Consola {
             }
         }
     }
+    
+    public static long leerLong() {
+        while (true) {
+            try {
+                // Usamos Long.parseLong en lugar de Integer.parseInt
+                return Long.parseLong(leerString().trim());
+            } catch (NumberFormatException e) {
+                System.out.println("No es un numero largo valido. Por favor, pruebe otra vez!");
+            }
+        }
+    }
 
     /**
      * Lee un Integer desde teclado

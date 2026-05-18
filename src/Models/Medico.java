@@ -59,7 +59,8 @@ public abstract class Medico extends Persona {
         }
         while(p!=null){
             Turno t = p.getDato();
-            
+            Consola.emitirMensajeLN(t.toString());
+            p= p.getPs();
         }
         
     }
@@ -78,7 +79,7 @@ public abstract class Medico extends Persona {
     
     
     public boolean esElMismo(Medico otro) {
-    return matricula == otro.getMatricula() || getDni() == otro.getDni();
+    return matricula.equals(otro.getMatricula().trim())|| getDni().equals(otro.getDni().trim());
 }
     
   
@@ -121,7 +122,13 @@ public abstract class Medico extends Persona {
     
     @Override
     public String toString() {
-        return "Medico " + "\n-matricula = " + matricula + "\n-agenda = " + agenda + "\nesp = " + esp;
+        String textoAgenda = "";
+        if(agenda.listaVacia()){
+            textoAgenda  = "Sin Turnos";
+        }else{
+            textoAgenda = "Con turnos asignados";
+        }
+        return "\nMedico " + super.toString() + "\n-matricula = " + matricula + "\n-agenda = " + textoAgenda + "\nespecialidad = " + esp;
     }
     
     
