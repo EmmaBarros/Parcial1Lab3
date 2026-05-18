@@ -54,6 +54,9 @@ public abstract class Medico extends Persona {
     
     public void verAgenda(){
         Nodo<Turno> p = agenda.inicio();
+        if(agenda.listaVacia()){
+            Consola.emitirMensajeLN("el medico no tiene agendas acutalmente...");
+        }
         while(p!=null){
             Turno t = p.getDato();
             
