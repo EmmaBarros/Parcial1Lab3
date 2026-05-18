@@ -44,12 +44,16 @@ public class GestorGeneral {
             op = menu.ejecutar();
             switch(op){
                 case 1:
+                    menuPacientes();
                     break;
                 case 2:
+                    menuMedicos();
                     break;
                 case 3:
+                    menuTurnos();
                     break;
                 case 4:
+                    Consola.emitirMensajeLN("Saliendo del sistema Clinico");
                     break;
                 
             }
