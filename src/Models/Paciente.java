@@ -9,7 +9,6 @@ import Consola.Consola;
  * @author emami
  */
 public class Paciente extends Persona{
-    private DatoContacto contacto;
     private Lista<Turno> agenda;
     private String obraSoc;
     private int edad;

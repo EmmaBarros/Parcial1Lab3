@@ -11,12 +11,6 @@ public class DatoContacto {
    private String gmail; 
    private String direc;
 
-    public DatoContacto(String nroTel, String gmail, String direc) {
-        this.nroTel = nroTel;
-        this.gmail = gmail;
-        this.direc = direc;
-    }
-
     public DatoContacto() {
         this.direc = "";
         this.gmail = "";
