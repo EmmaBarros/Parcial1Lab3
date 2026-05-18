@@ -33,7 +33,7 @@ public class GestorGeneral {
             new String[]{"Agregar Paciente", "Eliminar Paciente", "Mostrar Lista", "Volver al MenuPrincipal"});
     
         this.menuM.cargarDato("MODULO MEDICOS", 
-            new String[]{"Agregar Médico", "Eliminar Médico", "Mostrar Lista","Mostrar Agenda", "Volver al Menu Principal"});
+            new String[]{"Agregar Medico", "Eliminar Medico", "Mostrar Lista","Mostrar Agenda", "Volver al Menu Principal"});
    
         this.menuT.cargarDato("MODULO TURNOS",
                 new String[]{"Crear Turno","Cancelar Turno","Mostrar Turno","Volver al menu Principal"});
