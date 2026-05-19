@@ -28,8 +28,13 @@ public abstract class Medico extends Persona {
     public void cargarDatos(){
         super.CargarDatos();
     }
+    private void ingresoMatric(){
+        
+    }
     
-    
+    private void ingresoEsp(){
+        
+    }
   
 
     
