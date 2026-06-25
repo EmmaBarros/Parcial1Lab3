@@ -9,15 +9,18 @@ import java.util.Objects;
  * @author emami
  */
 public abstract class Persona {
- private String nom;
- private String ape;
- private String  dni;
- private DatoContacto dato;
+ protected String nom;
+ protected String ape;
+ protected String  dni;
+ protected DatoContacto dato;
 
 
 
     public Persona() {
-        this.dato = new DatoContacto();
+     this.nom = "";   
+     this.ape = "";
+     this.dni = "";
+     this.dato = new DatoContacto();
     }
     
 //mets abstractos
@@ -27,46 +30,31 @@ public abstract class Persona {
 //carga 
  
     public void CargarDatos(){
-        ingresarNombre();
-        ingresarApellido();
-        ingresarDni();
+        leerNombre();
+        leerApellido();
+        leerDni();
         this.dato.cargarDatos();
     }
 
-    private void ingresarNombre(){
-      String n;
-        do {
-            Consola.emitirMensaje("Nombre: ");
-            n = Consola.leerDato();
-            if (!Validar.validarString(n)) {
-                Consola.emitirMensajeLN("Carga invalida , ingrese un nombre...");
-            }
-        } while (!Validar.validarString(n));
-        setNom(n);  
+    private void leerNombre(){
+     String nomb = Validar.leerString("Ingrese el Nombre: ","Carga Invalida , intente nuevamente");
+     setNom(nomb);
     }
-    private void ingresarApellido(){
-        String a;
-        do {
-            Consola.emitirMensaje("Apellido: ");
-            a = Consola.leerDato();
-            if (!Validar.validarString(a)) {
-                Consola.emitirMensajeLN("Carga invalida , ingrese un apellido");
-            }
-        } while (!Validar.validarString(a));
-        setApe(a);
+    private void leerApellido(){
+        String apell = Validar.leerString("Ingrese el Apellido:  ","Carga Invalida , ingrese nuevamente");
+        setApe(apell);
     }
-    public void ingresarDni(){
+    public void leerDni(){
         String d;
         do {
             Consola.emitirMensaje("DNI: ");
             d = Consola.leerString();
-            if (!Validar.validarDni(d)) {
+            if (!Validar.validarStringNum(d)|| d.length()< 7 || d.length() > 8) {
                 Consola.emitirMensajeLN("Carga invlida , ingerese un Dni");
             }
-        } while (!Validar.validarDni(d));
+        } while (!Validar.validarStringNum(d));
         setDni(d);
     }
-        
 
   //gtts y stts
     public String getNom() {
@@ -117,8 +105,8 @@ public abstract class Persona {
     
     @Override
 public String toString() {
-    return String.format("%-15s | DNI: %-10s | %s", 
-                         ape.toUpperCase() + ", " + nom, 
+    return String.format("%-15s | DNI: %-10s | \n%s", 
+                         ape + ", " + nom, 
                          dni, 
                          dato.toString());
 }

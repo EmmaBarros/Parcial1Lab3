@@ -18,9 +18,9 @@ public class Fecha {
     private int minuto; // Nuevo atributo
 
     public Fecha() {
-        this.dia = 1;
-        this.mes = 1;
-        this.anio = 2000;
+        this.dia = 0;
+        this.mes = 0;
+        this.anio = 0;
         this.hora = 0;
         this.minuto = 0;
     }
@@ -59,6 +59,26 @@ public class Fecha {
             return false;
         }
     }
+    
+    public boolean esIgualA(Fecha otra){
+        return this.dia == otra.getDia() &&
+           this.mes == otra.getMes() &&
+           this.anio == otra.getAnio() &&
+           this.hora == otra.getHora() &&
+           this.minuto == otra.getMinuto();
+    }
+        public String formatoFecha() {
+        return String.format("%02d/%02d/%04d %02d:%02d\n", dia, mes, anio, hora, minuto);
+    }
+    
+    public String StringFecha(){
+        return String.format("%02d/%02d/%04d", dia, mes, anio);
+    }
+    
+    public String stringHora(){
+        return String.format("%02d:%02d", hora, minuto); 
+    }
+
 
     // Getters para los nuevos atributos
     public int getHora() { return hora; }
@@ -87,7 +107,11 @@ public class Fecha {
             case 4: case 6: case 9: case 11:
                 return 30;
             case 2:
-                return esAnioBisiesto(anio) ? 29 : 28;
+                if(esAnioBisiesto(anio)){
+                    return 29;
+                }else{
+                    return 28;
+                }
             default:
                 return -1;
         }
@@ -96,4 +120,11 @@ public class Fecha {
     private boolean esAnioBisiesto(int anio) {
         return (anio % 4 == 0 && anio % 100 != 0) || (anio % 400 == 0);
     }
+
+    @Override
+    public String toString() {
+        return formatoFecha().trim();
+    }
+    
+    
 }

@@ -1,65 +1,87 @@
 
 package Models;
-import ED.Lista;
+import ED.*;
+import Consola.Consola;
 import Validar.Validar;
 /**
  *
  * @author emami
  */
 public abstract class Medico extends Persona {
-    private  int id;
-    static int contId = 0;
-    private int matricula;
-    private Lista<Turno> agenda;
-    private String esp;
+    protected String matricula;
+    protected Lista<Turno> agenda;
+    protected String esp;
 
     
   //-constr  
-    public Medico() {
+    public Medico(String especialidad) {
         super();
-        contId ++;
-        this.id = contId;
-       
+        this.matricula = "";
+        this.esp = especialidad;
+        this.agenda = new Lista<>();
+        
+        
     }
+    
+    
   //abstrc
     public abstract void verEsp(); 
 
    //carga  
     public void cargarDatos(){
         super.CargarDatos();
+        leerMatr();
     }
-    private void ingresoMatric(){
+   private void leerMatr(){
+          String matric = Validar.leerString("ingrese la matricula","Error intente nuevamente");
+        setMatricula(matric);
+   }
+    
+    
+    public void verAgenda(){
+        Nodo<Turno> p = agenda.inicio();
+        if(agenda.listaVacia()){
+            Consola.emitirMensajeLN("el medico no tiene agendas acutalmente...");
+        }
+        while(p!=null){
+            Turno t = p.getDato();
+            Consola.emitirMensajeLN(t.toString());
+            p= p.getPs();
+        }
         
+    }
+ 
+ 
+
+    
+    public boolean tieneTurno(Fecha buscada){
+        Nodo<Turno> p = this.agenda.inicio();
+        while(p != null){
+            if(p.getDato().coincideTurno(buscada)){
+                return true;//encuentra el turno superpuesto
+            }
+            p = p.getPs();
+        }
+        return false;
     }
     
-    private void ingresoEsp(){
-        
-    }
-  
+    
+    public boolean esElMismo(Medico otro) {
+    return matricula.equals(otro.getMatricula())|| dni.equals(otro.getDni());
+}
+    
 
+  
+ 
     
     //gtrs y strs
-    public int getId() {
-        return id;
-    }
+   
 
-    private void setId(int id) {
-        this.id = id;
-    }
-
-    public static int getContId() {
-        return contId;
-    }
-
-    private static void setContId(int contId) {
-        Medico.contId = contId;
-    }
-
-    public int getMatricula() {
+    public String getMatricula() {
         return matricula;
     }
 
-    private void setMatricula(int matricula) {
+    private void setMatricula(String matricula) {
         this.matricula = matricula;
     }
 
@@ -83,13 +105,19 @@ public abstract class Medico extends Persona {
     
     @Override
     public void mostrarDatos(){
-        super.toString();
-        toString();
+        Consola.emitirMensajeLN(super.toString());
+        Consola.emitirMensajeLN(toString());
     }
     
     @Override
     public String toString() {
-        return "Medico " + "\n-id = " + id + "\n-matricula = " + matricula + "\n-agenda = " + agenda + "\nesp = " + esp;
+        String textoAgenda = "";
+        if(agenda.listaVacia()){
+            textoAgenda  = "Sin Turnos";
+        }else{
+            textoAgenda = "Con turnos asignados";
+        }
+        return "\nMedico " + super.toString() + "\n-matricula = " + matricula + "\n-agenda = " + textoAgenda + "\nespecialidad = " + esp;
     }
     
     

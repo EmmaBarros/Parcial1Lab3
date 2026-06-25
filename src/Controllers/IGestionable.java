@@ -11,8 +11,9 @@ package Controllers;
  * @param <T>
  */
 public interface IGestionable<T> {
+    
     void registrar(T elem);
     T buscar(T elem);
-    void eliminar(T elem);
+    void eliminar();
     void mostrarListado();
 }
